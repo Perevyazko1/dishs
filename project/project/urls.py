@@ -33,27 +33,11 @@ schema_view = get_schema_view(
    ),
     public=True,
     permission_classes=[permissions.AllowAny],
-    # добавляем фильтры в Swagger
-    # manual_parameters=[
-    #     openapi.Parameter('category', openapi.IN_QUERY, description="Category of the recipe", type=openapi.TYPE_STRING),
-    # ],
 )
 
 urlpatterns = [
-    # re_path(r'^swagger(?P\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('api/', include('rest_food.urls')),
     path('admin/', admin.site.urls),
 ]
-# urlpatterns = [
-#     # url(r'^$', ),
-#     # path('openapi', get_schema_view(
-#     #     title="Your Project",
-#     #     description="API for all things …"
-#     # ), name='api-schema'),
-#
-#
-#     path('swagger-ui/', schema_view),
-#
-# ]
