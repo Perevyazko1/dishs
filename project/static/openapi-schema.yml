@@ -1,0 +1,13 @@
+info:
+  description: "API for all things \u2026"
+  title: Your Project
+  version: ''
+openapi: 3.0.0
+paths:
+  /api/:
+    get:
+      operationId: api_list
+      tags:
+      - api
+servers:
+- url: http://localhost:8000/openapi
