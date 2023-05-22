@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from rest_framework import generics, viewsets
+from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import RecipeFilter
 from .models import Dish
@@ -11,9 +10,3 @@ class DishAPIView(generics.ListAPIView):
     serializer_class = DishSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = RecipeFilter
-    # def get_queryset(self):
-    #     queryset = Dish.objects.all()
-    #     category = self.request.query_params.get('category', None)
-    #     if category is not None:
-    #         queryset = queryset.filter(category=category)
-    #     return queryset
